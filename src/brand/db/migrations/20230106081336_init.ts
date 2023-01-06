@@ -6,9 +6,10 @@ export async function up(knex: Knex): Promise<void> {
         .createTable('brands', (table) => {
             table.increments();
             table.string('name').notNullable();
-            table.string('description').notNullable();
+            table.string('description');
             table.integer('price').notNullable();
-            table.string('category').notNullable();
+            table.string('category');
+            table.string('brandId').notNullable();
         })
 }
 
