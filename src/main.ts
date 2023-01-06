@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import dbSetup from './brand/db/setup';
+import dbSetup from './meal/db/setup';
 
 async function bootstrap() {
   dbSetup();

@@ -6,11 +6,11 @@ import {
     HttpException,
     } from '@nestjs/common';
 
-import { BrandService } from './brand.service';
+import { MealService } from './meal.service';
 
     @Controller('brands')
-    export class BrandController{
-        constructor(private readonly brandService: BrandService){}
+    export class MealController{
+        constructor(private readonly mealService: MealService){}
         @Post(':brandId/addons')
         async addMeal(
             @Param('brandId') brandId: string,
@@ -22,7 +22,7 @@ import { BrandService } from './brand.service';
             if(!brandId || !name || !price){
                 throw new HttpException('some required field not found', 404);
             }
-            const response = await this.brandService.insertMeal({
+            const response = await this.mealService.insertMeal({
                 name,
                 description,
                 price,

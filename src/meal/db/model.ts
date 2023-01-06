@@ -1,6 +1,6 @@
 const { Model } = require('objection');
 
-export class BrandModel extends Model {
+export class MealModel extends Model {
   static get tableName() {
     return 'brands';
   }
