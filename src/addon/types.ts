@@ -1,4 +1,4 @@
-export type mealItem = {
+export type addonItem = {
     name: string,
     description?: string,
     price: number,
