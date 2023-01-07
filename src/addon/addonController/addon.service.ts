@@ -1,11 +1,11 @@
 import { Injectable } from "@nestjs/common";
-import { AddonModel } from './db/model';
-import { addonItem } from "./types";
+import { AddonModel } from '../db/model/addonModel';
+import { addonItem } from "../types";
 
 @Injectable()
 export class AddonService{
-    async insertAddon(mealData: addonItem){
-        const newAddon = await AddonModel.query().insert(mealData);
+    async insertAddon(addonData: addonItem){
+        const newAddon = await AddonModel.query().insert(addonData);
         return newAddon;
     };
 

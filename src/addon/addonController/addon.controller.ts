@@ -10,7 +10,7 @@ import {
     } from '@nestjs/common';
 
 import { AddonService } from './addon.service';
-import { addonItem } from './types';
+import { addonItem } from '../types';
 
     @Controller('brands')
     export class AddonController{
@@ -34,7 +34,7 @@ import { addonItem } from './types';
                 brandId,
             });
             if(!response){
-                throw new HttpException('no response found', 404);
+                throw new HttpException('Invalid request', 400);
             };
 
             return { status: 201, response };
@@ -47,7 +47,7 @@ import { addonItem } from './types';
             };
             const response = await this.addonService.getAddons(brandId);
             if(!response){
-                throw new HttpException('no response found', 404);
+                throw new HttpException('addons not found', 404);
             };
 
             return { status: 200, response }
@@ -63,7 +63,7 @@ import { addonItem } from './types';
             };
             const response = await this.addonService.getAddon(brandId, addonId);
             if(!response){
-                throw new HttpException('no response found', 404);
+                throw new HttpException('addon not found', 404);
             };
 
             return { status: 200, response }
@@ -80,7 +80,7 @@ import { addonItem } from './types';
             };
             const response = await this.addonService.patchAddon(brandId, addonId, body);
             if(!response){
-                throw new HttpException('no response found', 404);
+                throw new HttpException('addon not found', 404);
             };
 
             return { status: 200, response }
@@ -96,7 +96,7 @@ import { addonItem } from './types';
             };
             const response = await this.addonService.deleteAddon(brandId, addonId);
             if(!response){
-                throw new HttpException('no response found', 404);
+                throw new HttpException('addon not found', 404);
             };
 
             return { status: 200, message: 'addon successfully deleted' };

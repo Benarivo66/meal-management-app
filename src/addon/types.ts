@@ -4,4 +4,8 @@ export type addonItem = {
     price: number,
     category?: string,
     brandId?: string
-}
+};
+
+export type addonCategoryItem = {
+    name: string
+};

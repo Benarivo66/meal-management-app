@@ -2,7 +2,7 @@ const { Model } = require('objection');
 
 export class AddonModel extends Model {
   static get tableName() {
-    return 'brands';
+    return 'addons';
   }
 
   static get jsonSchema() {
