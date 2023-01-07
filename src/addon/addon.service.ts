@@ -5,18 +5,33 @@ import { addonItem } from "./types";
 @Injectable()
 export class AddonService{
     async insertAddon(mealData: addonItem){
-        const newMeal = await AddonModel.query().insert(mealData);
-        return newMeal;
+        const newAddon = await AddonModel.query().insert(mealData);
+        return newAddon;
     };
 
     async getAddons(brandId: string){
-        const meals = await AddonModel.query().where('brandId', '=', brandId);
-        return meals;
+        const addons = await AddonModel.query().where('brandId', '=', brandId);
+        return addons;
     };
 
     async getAddon(brandId: string, addonId: string){
-        const meal = await AddonModel.query().where('brandId', '=', brandId).andWhere('id', '=', addonId).first();
-        return meal;
+        const addon = await AddonModel.query().where('brandId', '=', brandId).andWhere('id', '=', addonId).first();
+        return addon;
+    };
+
+    async patchAddon(brandId: string, addonId: string, body: addonItem){
+        const updatedAddon = await AddonModel.query().patchAndFetchById(addonId, {
+            name: body.name,
+            description: body.description,
+            price: body.price,
+            category: body.category
+        })
+        return updatedAddon;
+    };
+
+    async deleteAddon(brandId: string, addonId: string){
+        const deletedAddon = await AddonModel.query().findById(addonId).delete();
+        return deletedAddon;
     };
 };
 

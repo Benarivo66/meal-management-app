@@ -5,9 +5,12 @@ import {
     Controller,
     HttpException,
     Get,
+    Patch,
+    Delete,
     } from '@nestjs/common';
 
 import { AddonService } from './addon.service';
+import { addonItem } from './types';
 
     @Controller('brands')
     export class AddonController{
@@ -64,5 +67,38 @@ import { AddonService } from './addon.service';
             };
 
             return { status: 200, response }
+        };
+
+        @Patch(':brandId/addons/:addonId')
+        async updateAddon(
+            @Param('brandId') brandId: string,
+            @Param('addonId') addonId: string,
+            @Body() body: addonItem
+        ){
+            if(!brandId || !addonId){
+                throw new HttpException('Invalid request', 400);
+            };
+            const response = await this.addonService.patchAddon(brandId, addonId, body);
+            if(!response){
+                throw new HttpException('no response found', 404);
+            };
+
+            return { status: 200, response }
+        };
+
+        @Delete(':brandId/addons/:addonId')
+        async removeAddon(
+            @Param('brandId') brandId: string,
+            @Param('addonId') addonId: string
+        ){
+            if(!brandId || !addonId){
+                throw new HttpException('Invalid request', 400);
+            };
+            const response = await this.addonService.deleteAddon(brandId, addonId);
+            if(!response){
+                throw new HttpException('no response found', 404);
+            };
+
+            return { status: 200, message: 'addon successfully deleted' };
         };
     }
