@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import dbSetup from './addon/db/setup';
+import dbSetup from './addonUserCategory/db/setup';
 
 async function bootstrap() {
   dbSetup();

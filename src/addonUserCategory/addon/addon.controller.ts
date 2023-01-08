@@ -10,12 +10,14 @@ import {
     } from '@nestjs/common';
 
 import { AddonService } from './addon.service';
-import { addonItem } from '../types';
+import { addonItem, Role } from '../types';
+import { Roles } from '../roles/roles.decorator';
 
     @Controller('brands')
     export class AddonController{
         constructor(private readonly addonService: AddonService){}
         @Post(':brandId/addons')
+        @Roles(Role.Admin)
         async createAddon(
             @Param('brandId') brandId: string,
             @Body('name') name: string,
@@ -41,6 +43,7 @@ import { addonItem } from '../types';
         };
 
         @Get(':brandId/addons')
+        @Roles(Role.Admin)
         async getAddons(@Param('brandId') brandId: string,){
             if(!brandId){
                 throw new HttpException('Invalid request', 400);
@@ -54,6 +57,7 @@ import { addonItem } from '../types';
         };
 
         @Get(':brandId/addons/:addonId')
+        @Roles(Role.Admin)
         async getAddon(
             @Param('brandId') brandId: string,
             @Param('addonId') addonId: string
@@ -70,6 +74,7 @@ import { addonItem } from '../types';
         };
 
         @Patch(':brandId/addons/:addonId')
+        @Roles(Role.Admin)
         async updateAddon(
             @Param('brandId') brandId: string,
             @Param('addonId') addonId: string,
@@ -87,6 +92,7 @@ import { addonItem } from '../types';
         };
 
         @Delete(':brandId/addons/:addonId')
+        @Roles(Role.Admin)
         async removeAddon(
             @Param('brandId') brandId: string,
             @Param('addonId') addonId: string

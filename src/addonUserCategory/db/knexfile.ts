@@ -16,7 +16,7 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: '/Users/Mac/Documents/meal-app/src/addon/db/migrations',
+      directory: '/Users/Mac/Documents/meal-app/src/addonUserCategory/db/migrations',
       tableName: 'knex_migrations',
       extension: 'ts'
     },

@@ -7,12 +7,15 @@ import {
     } from '@nestjs/common';
 
 import { AddonCategoryService } from './addonCateg.service';
+import { Roles } from '../roles/roles.decorator';
+import { Role } from '../types';
 
     @Controller('brands')
     export class AddonCategoryController{
         constructor(private readonly addonCategoryService: AddonCategoryService){}
         @Post(':brandId/addon-categories')
-        async createAddon(
+        @Roles(Role.Admin)
+        async createAddonCategory(
             @Param('brandId') brandId: string,
             @Body('name') name: string,
         ){
