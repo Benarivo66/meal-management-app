@@ -9,7 +9,7 @@ config();
 
 module.exports = {
   development: {
-    client: process.env.CLIENT || 'postgresql',
+    client: 'postgresql',
     connection: {
       database: process.env.DATABASE,
       user: process.env.USER,
