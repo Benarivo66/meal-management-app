@@ -1,4 +1,4 @@
-const { Model } = require('objection');
+import { Model } from 'objection';
 
 export class AddonCategoryModel extends Model {
   static get tableName() {
@@ -12,9 +12,7 @@ export class AddonCategoryModel extends Model {
       properties: {
         id: { type: 'integer' },
         name: { type: 'string', minLength: 1, maxLength: 255 },
-      }
+      },
     };
-  };
-};
-
-
+  }
+}

@@ -8,17 +8,18 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'mealdb',
-      user:     'Mac',
-      password: null
+      user: 'Mac',
+      password: null,
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      directory: '/Users/Mac/Documents/meal-app/src/addonUserCategory/db/migrations',
+      directory:
+        '/Users/Mac/Documents/meal-app/src/addonUserCategory/db/migrations',
       tableName: 'knex_migrations',
-      extension: 'ts'
+      extension: 'ts',
     },
-  }
+  },
 };

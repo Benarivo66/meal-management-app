@@ -10,4 +10,4 @@ import { UserModule } from './addonUserCategory/user/user.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {};
+export class AppModule {}

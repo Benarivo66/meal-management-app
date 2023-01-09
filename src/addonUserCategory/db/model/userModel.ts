@@ -1,4 +1,4 @@
-const { Model } = require('objection');
+import { Model } from 'objection';
 
 export class UserModel extends Model {
   static get tableName() {
@@ -12,9 +12,8 @@ export class UserModel extends Model {
       properties: {
         id: { type: 'integer' },
         name: { type: 'string', minLength: 1, maxLength: 255 },
-        role: {type: 'string', default: 'user' }
-      }
+        role: { type: 'string', default: 'user' },
+      },
     };
-  };
-};
-
+  }
+}

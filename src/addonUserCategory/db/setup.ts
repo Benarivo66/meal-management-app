@@ -8,7 +8,7 @@ function setupDb() {
 
   // plug db config into objection
   Model.knex(db);
-  console.log('db successfully set up')
+  console.log('db successfully set up');
 }
 
 export default setupDb;

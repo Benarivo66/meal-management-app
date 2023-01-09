@@ -1,73 +1,35 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+HOW TO RUN THIS APPLICATION
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+1. Install Postgres
+  a. On MacOs we can install postgres with Homebrew by running the command `brew install postgresql`;
+  b. We can start postgres by running `brew services start postgres`
+  c. Update it by running `brew postgresql-upgrade-database`
+  d. And stop it by running `brew services stop postgres`
+  e. For other operating systems, please check the Postgres website - https://www.postgresql.org/download/.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+2. Create Database
+  a. Create database with the name `mealdb`. 
+  - We can do that by running `psql postgres` on the command line followed by `CREATE DATABASE mealdb;`. Do not ignore the semicolon.
+  - The user should be "Mac" and password set to "null". Another option may be to edit the meal-app/src/addonUserCategory/db/knexfile.ts file to your password and user.
 
-## Description
+3. Clone the Repo and Install Dependencies
+  a. Clone the repo
+  b. Run `npm install` to install dependencies
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+4. Run the Migrations
+  a. To run the migrations run `npm run migrate`. 3 migration files should be created.
 
-## Installation
+5. Put on the Server
+  a. Put the server on by running `npm run start:dev`
 
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+6. Run the manual tests on Postman - some examples are given below
+  a. POST request on /brands/qwer65/addons with name, price, category, description
+  b. POST request on /brands/1234gf/addons with name and price only
+  c. POST request on /brands/1234gf/addons with name, category and description
+  d. GET request on brands/1234gf/addons
+  e. GET request on /brands/`${brandIdThatExists}`/addons/`${addonIdThatExists}`
+  f. GET request on /brands/`${brandIdThatDoesNotExists}`/addons/`${addonIdThatExists}`
+  g. GET request on /brands/`${brandIdThatExists}`/addons/`${addonIdThatDoesNotExists}`
+  h. Similar pattern for PATCH and DELETE requests
+  i. POST request on /brands/`${AnyIDAsIn(a-d)}`/addon-categories with name
+  j. etc

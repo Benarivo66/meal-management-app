@@ -1,18 +1,17 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable } from '@nestjs/common';
 import { UserModel } from '../db/model/userModel';
-import { userItem } from "../types";
+import { userItem } from '../types';
 
 @Injectable()
-export class UserService{
-    async insertUser(user: userItem){
-        const newUser = await UserModel.query().insert(user);
-        return newUser;
-    };
+export class UserService {
+  async insertUser(user: userItem) {
+    const newUser = await UserModel.query().insert(user);
+    return newUser;
+  }
 
-    async login(userName: string){
-        const user = await UserModel.query().where('name', '=', userName).first();
+  async login(userName: string) {
+    const user = await UserModel.query().where('name', '=', userName).first();
 
-        return user;
-    };
-};
-
+    return user;
+  }
+}

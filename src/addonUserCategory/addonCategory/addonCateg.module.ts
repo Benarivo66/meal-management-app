@@ -5,6 +5,6 @@ import { AddonCategoryService } from './addonCateg.service';
 
 @Module({
   controllers: [AddonCategoryController],
-  providers: [AddonCategoryService]
+  providers: [AddonCategoryService],
 })
 export class AddonCategoryModule {}

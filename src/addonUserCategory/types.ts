@@ -1,37 +1,32 @@
 import { Request } from 'express';
 
 export type addonItem = {
-    name: string,
-    description?: string,
-    price: number,
-    category?: string,
-    brandId?: string
+  name: string;
+  description?: string;
+  price: number;
+  category?: string;
+  brandId?: string;
 };
 
 export type addonCategoryItem = {
-    name: string
+  name: string;
 };
 
 export type userItem = {
-    name: string,
-    role: string
+  name: string;
+  role: string;
 };
 
 export interface IRequest extends Request {
-    user:{
-        role: string,
-        name: string,
-    },
-    session:{
-        destroy: () => void
-    };
-};
+  user: {
+    role: string;
+    name: string;
+  };
+  session: {
+    destroy: () => void;
+  };
+}
 
 export type nameObjType = {
-    name: string
+  name: string;
 };
-
-export enum Role {
-    User = 'user',
-    Admin = 'admin',
-  };
