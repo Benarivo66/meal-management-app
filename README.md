@@ -33,3 +33,8 @@ HOW TO RUN THIS APPLICATION
   h. Similar pattern for PATCH and DELETE requests
   i. POST request on /brands/`${AnyIDAsIn(a-d)}`/addon-categories with name
   j. etc
+
+7. Url of deployed app - https://meal-management-app-production.up.railway.app
+8. To get the home page hit the end point - https://meal-management-app-production.up.railway.app
+9. To get all addons hit the end point of brandId erty32 - https://meal-management-app-production.up.railway.app/brands/erty32/addons
+10. We can also manipulate the end point to patch, delete and get a single item as in 6 above.
