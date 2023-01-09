@@ -22,7 +22,7 @@ module.exports = {
     },
     migrations: {
       directory:
-      __dirname + '/db/migrations',
+      __dirname + 'migrations',
       tableName: 'knex_migrations',
       extension: 'ts',
     },
@@ -41,7 +41,7 @@ module.exports = {
     },
     migrations: {
       directory:
-      __dirname + '/db/migrations',
+      __dirname + '/migrations',
       tableName: 'knex_migrations',
       extension: 'ts',
     },
