@@ -6,7 +6,6 @@
 import { config } from 'dotenv';
 
 config();
-console.log(111, process.env.USER)
 
 module.exports = {
   development: {
