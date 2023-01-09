@@ -3,13 +3,17 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
+import { config } from 'dotenv';
+
+config();
+
 module.exports = {
   development: {
-    client: 'postgresql',
+    client: process.env.CLIENT || 'postgresql',
     connection: {
-      database: 'mealdb',
-      user: 'Mac',
-      password: null,
+      database: process.env.DATABASE,
+      user: process.env.USER,
+      password: process.env.PASSWORD,
     },
     pool: {
       min: 2,

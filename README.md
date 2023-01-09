@@ -8,9 +8,9 @@ HOW TO RUN THIS APPLICATION
   e. For other operating systems, please check the Postgres website - https://www.postgresql.org/download/.
 
 2. Create Database
-  a. Create database with the name `mealdb`. 
-  - We can do that by running `psql postgres` on the command line followed by `CREATE DATABASE mealdb;`. Do not ignore the semicolon.
-  - The user should be "Mac" and password set to "null". Another option may be to edit the meal-app/src/addonUserCategory/db/knexfile.ts file to your password and user.
+  a. Create a database with any name. 
+  - We can do that by running `psql postgres` on the command line followed by for instance `CREATE DATABASE mealdb;`. Do not ignore the semicolon.
+  - create USER, DATABASE and PASSWORD variables in a .env file to match the pg username, the pg database you intend to use and your pg password. Note the process.env variables in /meal-app/src/addonUserCategory/db/knexfile.ts file.
 
 3. Clone the Repo and Install Dependencies
   a. Clone the repo
