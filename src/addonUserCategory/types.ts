@@ -18,8 +18,11 @@ export type userItem = {
 };
 
 export interface IRequest extends Request {
+    user:{
+        role: string,
+        name: string,
+    },
     session:{
-        isAdmin: boolean,
         destroy: () => void
     };
 };
